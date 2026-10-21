@@ -93,10 +93,10 @@ export default function OrderJourneySection() {
   }, [step, kind, reduce, controls, s.focus, paidView])
 
   return (
-    <section id="journey" className="relative bg-[#0C0C0C]">
+    <section id="journey" className="relative bg-[#0A0810]">
       <div className="px-5 pt-24 sm:px-8 md:px-10 md:pt-32">
-        <FadeIn as="h2" className="hero-heading text-center font-black uppercase leading-none tracking-tight" style={{ fontSize: 'clamp(3rem, 11vw, 150px)' }}>
-          Order Journey
+        <FadeIn as="h2" className="text-center font-light leading-none tracking-tight" style={{ fontSize: 'clamp(2.4rem, 6vw, 6rem)' }}>
+          Watch one order, <span className="font-serif italic text-[#FFD3B0]">start to paid</span>.
         </FadeIn>
         <FadeIn delay={0.15} className="mx-auto mt-6 max-w-[620px] text-center font-light leading-relaxed text-[#D7E2EA]" style={{ fontSize: 'clamp(0.95rem, 1.6vw, 1.2rem)' }}>
           The Spurgeon Appraisals workspace I built and run, replayed with sample orders. Pick a property type, then scroll to follow one order from intake until the client pays.
@@ -108,8 +108,8 @@ export default function OrderJourneySection() {
               type="button"
               onClick={() => setKind(k.key)}
               aria-pressed={kind === k.key}
-              className={`group flex items-center gap-3 rounded-full border-2 py-2 pl-2 pr-6 text-sm font-medium uppercase tracking-widest transition-colors duration-200 sm:text-base ${
-                kind === k.key ? 'border-[#D7E2EA] bg-[#D7E2EA] text-[#0C0C0C]' : 'border-[#D7E2EA]/40 text-[#D7E2EA] hover:border-[#D7E2EA]'
+              className={`group flex items-center gap-3 rounded-xl border py-1.5 pl-1.5 pr-5 text-sm transition-colors duration-200 sm:text-base ${
+                kind === k.key ? 'border-[#FFD3B0] bg-[#FFD3B0] text-[#2A1A24]' : 'border-[#D7E2EA]/40 text-[#D7E2EA] hover:border-[#D7E2EA]'
               }`}
             >
               <img src={k.img} alt="" className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12" />
@@ -130,7 +130,7 @@ export default function OrderJourneySection() {
                   onClick={() => goTo(i)}
                   className={`flex w-full items-baseline gap-3 rounded-2xl px-4 py-2.5 text-left transition-colors duration-300 ${i === step ? 'bg-[#D7E2EA]/10' : 'hover:bg-[#D7E2EA]/5'}`}
                 >
-                  <span className={`font-black tabular-nums transition-colors ${i === step ? 'text-[#C0D849]' : 'text-[#646973]'}`}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className={`font-light tabular-nums transition-colors ${i === step ? 'text-[#C0D849]' : 'text-[#646973]'}`}>{String(i + 1).padStart(2, '0')}</span>
                   <span className={`uppercase tracking-wider transition-colors ${i === step ? 'text-[#D7E2EA]' : 'text-[#646973]'}`}>{st.title}</span>
                 </button>
                 {i === step && (
@@ -149,7 +149,7 @@ export default function OrderJourneySection() {
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                <span className="ml-3 hidden truncate rounded-md bg-[#0C0C0C] px-3 py-0.5 font-jakarta text-[11px] text-[#9aa3ad] sm:block">workspace.spurgeonappraisals · Operations view · sample data</span>
+                <span className="ml-3 hidden truncate rounded-md bg-[#0A0810] px-3 py-0.5 font-jakarta text-[11px] text-[#9aa3ad] sm:block">workspace.spurgeonappraisals · Operations view · sample data</span>
               </div>
               <div ref={frameRef} className="relative w-full overflow-hidden rounded-[10px] sm:rounded-[14px]" style={{ aspectRatio: `${W} / ${H}` }}>
                 <div className="absolute left-0 top-0 origin-top-left" style={{ width: W, height: H, transform: `scale(${fit})` }}>
@@ -163,7 +163,7 @@ export default function OrderJourneySection() {
 
             {/* Caption for smaller screens */}
             <div className="mt-5 flex items-start gap-4 lg:hidden">
-              <span className="font-black tabular-nums text-[#C0D849]" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.4rem)', lineHeight: 1 }}>{String(step + 1).padStart(2, '0')}</span>
+              <span className="font-light tabular-nums text-[#C0D849]" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.4rem)', lineHeight: 1 }}>{String(step + 1).padStart(2, '0')}</span>
               <div className="min-w-0">
                 <div className="font-medium uppercase tracking-wider text-[#D7E2EA]">{s.title}</div>
                 <p className="text-sm font-light leading-relaxed text-[#D7E2EA]/70">{s.text}</p>

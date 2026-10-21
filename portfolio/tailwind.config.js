@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        kanit: ['Kanit', 'sans-serif'],
+        sans: ['Outfit', 'system-ui', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
         jakarta: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
         jost: ['Jost', 'Futura', 'sans-serif'],
       },

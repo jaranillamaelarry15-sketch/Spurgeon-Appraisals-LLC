@@ -1,23 +1,27 @@
+import Scene3D from './components/Scene3D'
+import Nav from './components/Nav'
 import HeroSection from './sections/HeroSection'
-import MarqueeSection from './sections/MarqueeSection'
-import AboutSection from './sections/AboutSection'
-import ServicesSection from './sections/ServicesSection'
-import ProjectsSection from './sections/ProjectsSection'
-import PropertyToursSection from './sections/PropertyToursSection'
+import IntroSection from './sections/IntroSection'
+import WorkSection from './sections/WorkSection'
+import ToursSection from './sections/ToursSection'
+import ProcessSection from './sections/ProcessSection'
 import OrderJourneySection from './sections/OrderJourneySection'
-import ContactSection from './sections/ContactSection'
+import ServicesSection from './sections/ServicesSection'
+import CtaSection from './sections/CtaSection'
 
 export default function App() {
   return (
-    <main className="bg-[#0C0C0C]" style={{ overflowX: 'clip' }}>
+    <main className="relative bg-[#0A0810]" style={{ overflowX: 'clip' }}>
+      <Scene3D />
+      <Nav />
       <HeroSection />
-      <MarqueeSection />
-      <AboutSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <PropertyToursSection />
+      <IntroSection />
+      <WorkSection />
+      <ToursSection />
+      <ProcessSection />
       <OrderJourneySection />
-      <ContactSection />
+      <ServicesSection />
+      <CtaSection />
     </main>
   )
 }

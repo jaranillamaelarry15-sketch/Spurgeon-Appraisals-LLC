@@ -4,32 +4,24 @@ export function scrollToId(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-export function ContactButton({ label = 'Contact Me', onClick }: { label?: ReactNode; onClick?: () => void }) {
+const base = 'inline-flex items-center justify-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium transition-all duration-200 sm:text-[15px]'
+
+export function PeachButton({ children, onClick }: { children: ReactNode; onClick?: () => void }) {
   return (
-    <button
-      type="button"
-      onClick={onClick ?? (() => scrollToId('contact'))}
-      className="rounded-full px-8 py-3 sm:px-10 sm:py-3.5 md:px-12 md:py-4 text-xs sm:text-sm md:text-base font-medium uppercase tracking-widest text-white transition-transform duration-200 hover:scale-[1.03]"
-      style={{
-        background: 'linear-gradient(123deg, #18011F 7%, #B600A8 37%, #7621B0 72%, #BE4C00 100%)',
-        boxShadow: '0px 4px 4px rgba(181, 1, 167, 0.25), 4px 4px 12px #7721B1 inset',
-        outline: '2px solid white',
-        outlineOffset: '-3px',
-      }}
-    >
-      {label}
+    <button type="button" onClick={onClick} className={`${base} bg-gradient-to-r from-[#FFD3B0] to-[#F6A98C] text-[#2A1A24] shadow-[0_8px_30px_-8px_rgba(246,169,140,0.7)] hover:brightness-105`}>
+      {children}
     </button>
   )
 }
 
-export function LiveProjectButton({ label = 'Live Project', onClick }: { label?: ReactNode; onClick?: () => void }) {
+export function GhostButton({ children, onClick, dark }: { children: ReactNode; onClick?: () => void; dark?: boolean }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="shrink-0 rounded-full border-2 border-[#D7E2EA] px-8 py-3 sm:px-10 sm:py-3.5 text-sm sm:text-base font-medium uppercase tracking-widest text-[#D7E2EA] transition-colors duration-200 hover:bg-[#D7E2EA]/10"
+      className={`${base} border ${dark ? 'border-[#2A1A24]/40 text-[#2A1A24] hover:bg-[#2A1A24]/5' : 'border-[#F6A98C]/60 text-[#FFD3B0] hover:bg-[#F6A98C]/10'}`}
     >
-      {label}
+      {children}
     </button>
   )
 }
