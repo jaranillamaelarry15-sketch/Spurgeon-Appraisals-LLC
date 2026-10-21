@@ -6,6 +6,7 @@ import portrait from '../assets/portrait.webp'
 const LINKS = [
   { label: 'About', id: 'about' },
   { label: 'Services', id: 'services' },
+  { label: 'Tours', id: 'tours' },
   { label: 'Projects', id: 'projects' },
   { label: 'Contact', id: 'contact' },
 ]
