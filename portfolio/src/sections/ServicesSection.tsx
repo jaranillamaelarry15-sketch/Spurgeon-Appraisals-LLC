@@ -1,43 +1,35 @@
-import { Inbox, Calculator, Map, Workflow, Megaphone, CalendarCheck, Receipt, Users } from 'lucide-react'
 import FadeIn from '../components/FadeIn'
 
-const ROW1 = [
-  { icon: Inbox, label: 'Appraisal order management' },
-  { icon: Calculator, label: 'Fee quoting & bids' },
-  { icon: Map, label: 'GIS & parcel research' },
-  { icon: CalendarCheck, label: 'Inspection scheduling' },
+const SERVICES = [
+  { name: 'Executive & Admin Support', text: 'Calendar and inbox management, scheduling, correspondence, and day-to-day executive support so nothing slips.' },
+  { name: 'Client & CRM Management', text: "Client communications, relationship management, and a CRM that's kept clean, current, and easy to report from." },
+  { name: 'Social Media & Marketing Support', text: 'Content coordination and social media marketing to grow visibility and bring in new clients — banks, attorneys, and property owners alike.' },
+  { name: 'Process & SOP Development', text: 'Documented, repeatable procedures that let a growing team scale without losing quality or consistency.' },
+  { name: 'Workflow Automation', text: 'Zapier, Power Automate, and GoHighLevel automations that cut manual work and reduce errors.' },
+  { name: 'Scheduling & Coordination', text: 'Appointment and calendar coordination, including healthcare-grade scheduling accuracy and insurance verification.' },
 ]
-const ROW2 = [
-  { icon: Workflow, label: 'Workflow automation & SOPs' },
-  { icon: Users, label: 'Client & AMC communication' },
-  { icon: Receipt, label: 'Invoicing & payment follow-up' },
-  { icon: Megaphone, label: 'Social media marketing' },
-]
-
-function Row({ items, rev }: { items: typeof ROW1; rev?: boolean }) {
-  const all = [...items, ...items, ...items, ...items]
-  return (
-    <div className="overflow-hidden">
-      <div className={`flex w-max gap-3 ${rev ? 'marquee-rev' : 'marquee'}`}>
-        {all.map((it, i) => (
-          <span key={i} className="flex shrink-0 items-center gap-2 rounded-xl border border-[#C0D849]/40 bg-[#C0D849]/10 px-5 py-3 text-[15px] text-[#E4EFA0] shadow-[0_0_24px_-6px_rgba(192,216,73,0.45)] sm:text-base">
-            <it.icon size={17} /> {it.label}
-          </span>
-        ))}
-      </div>
-    </div>
-  )
-}
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="bg-[#01170C] py-24 md:py-32">
-      <FadeIn as="h2" y={40} className="mx-auto max-w-[1400px] px-5 font-light leading-[1] tracking-tight sm:px-10" style={{ fontSize: 'clamp(2.2rem, 5vw, 4.8rem)' }}>
-        What I take off <span className="font-serif italic text-[#C0D849]">your</span> plate.
-      </FadeIn>
-      <div className="mt-12 flex flex-col gap-3">
-        <Row items={ROW1} />
-        <Row items={ROW2} rev />
+    <section id="services" className="bg-[#01170C] px-5 py-24 sm:px-10 md:py-32">
+      <div className="mx-auto max-w-[1400px]">
+        <FadeIn as="p" className="text-xs font-semibold uppercase tracking-[0.2em] text-[#C0D849]">What I can take off your plate</FadeIn>
+        <FadeIn as="h2" y={40} className="mt-3 font-light leading-[1] tracking-tight" style={{ fontSize: 'clamp(2.4rem, 6vw, 6rem)' }}>
+          <span className="font-serif italic text-[#C0D849]">Services</span>
+        </FadeIn>
+        <div className="mt-14 grid gap-x-10 md:grid-cols-2">
+          {SERVICES.map((s, i) => (
+            <FadeIn key={s.name} delay={(i % 2) * 0.1} y={40} className="group flex min-w-0 gap-6 border-t border-[#C0D849]/20 py-8 sm:py-10">
+              <span className="shrink-0 font-light leading-none tabular-nums text-[#C0D849]/40 transition-colors duration-300 group-hover:text-[#C0D849]" style={{ fontSize: 'clamp(2.6rem, 5vw, 4.4rem)' }}>
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <div className="min-w-0 pt-1">
+                <h3 className="font-normal text-[#F4F1EC]" style={{ fontSize: 'clamp(1.2rem, 2vw, 1.7rem)' }}>{s.name}</h3>
+                <p className="mt-2 max-w-[46ch] leading-relaxed text-[#9FB6A9]">{s.text}</p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
       </div>
     </section>
   )

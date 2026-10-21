@@ -3,9 +3,10 @@ import { scrollToId } from './Buttons'
 
 const LINKS = [
   { label: 'About', id: 'intro' },
-  { label: 'Properties', id: 'work' },
+  { label: 'Services', id: 'services' },
   { label: 'Tours', id: 'tours' },
-  { label: 'Process', id: 'process' },
+  { label: 'Tools', id: 'tools' },
+  { label: 'Contact', id: 'cta' },
 ]
 
 export default function Nav() {
@@ -40,7 +41,7 @@ export default function Nav() {
           onClick={() => scrollToId('cta')}
           className={`rounded-xl border px-4 py-2 text-sm font-medium transition-colors border-[#C0D849]/60 text-[#C0D849] hover:bg-[#C0D849]/10`}
         >
-          Book a call
+          Let&apos;s talk
         </button>
       </div>
     </header>

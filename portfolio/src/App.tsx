@@ -6,6 +6,7 @@ import ToursSection from './sections/ToursSection'
 import ProcessSection from './sections/ProcessSection'
 import OrderJourneySection from './sections/OrderJourneySection'
 import ServicesSection from './sections/ServicesSection'
+import ToolsSection from './sections/ToolsSection'
 import CtaSection from './sections/CtaSection'
 
 export default function App() {
@@ -14,11 +15,12 @@ export default function App() {
       <Nav />
       <HeroSection />
       <IntroSection />
+      <ServicesSection />
       <WorkSection />
       <ToursSection />
       <ProcessSection />
       <OrderJourneySection />
-      <ServicesSection />
+      <ToolsSection />
       <CtaSection />
     </main>
   )
