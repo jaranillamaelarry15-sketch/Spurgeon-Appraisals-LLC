@@ -3,9 +3,10 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import FadeIn from '../components/FadeIn'
 import Workspace, { H, RECTS, W } from '../workspace/Workspace'
 import { ORDERS, STEPS, type PayMethod, type PropertyKey } from '../workspace/data'
-import houseImg from '../assets/obj_house.webp'
-import barnImg from '../assets/obj_barn.webp'
-import officeImg from '../assets/obj_office.webp'
+const files = import.meta.glob('../assets/tours/*.webp', { eager: true, import: 'default' }) as Record<string, string>
+const houseImg = files['../assets/tours/res-001-000.webp']
+const barnImg = files['../assets/tours/farm-15-1.webp']
+const officeImg = files['../assets/tours/land-001-001.webp']
 
 const KINDS: { key: PropertyKey; img: string }[] = [
   { key: 'residential', img: houseImg },
@@ -93,12 +94,12 @@ export default function OrderJourneySection() {
   }, [step, kind, reduce, controls, s.focus, paidView])
 
   return (
-    <section id="journey" className="relative bg-[#0A0810]">
+    <section id="journey" className="relative bg-[#01170C]">
       <div className="px-5 pt-24 sm:px-8 md:px-10 md:pt-32">
         <FadeIn as="h2" className="text-center font-light leading-none tracking-tight" style={{ fontSize: 'clamp(2.4rem, 6vw, 6rem)' }}>
-          Watch one order, <span className="font-serif italic text-[#FFD3B0]">start to paid</span>.
+          Watch one order, <span className="font-serif italic text-[#C0D849]">start to paid</span>.
         </FadeIn>
-        <FadeIn delay={0.15} className="mx-auto mt-6 max-w-[620px] text-center font-light leading-relaxed text-[#D7E2EA]" style={{ fontSize: 'clamp(0.95rem, 1.6vw, 1.2rem)' }}>
+        <FadeIn delay={0.15} className="mx-auto mt-6 max-w-[620px] text-center font-light leading-relaxed text-[#C9D6CE]" style={{ fontSize: 'clamp(0.95rem, 1.6vw, 1.2rem)' }}>
           The Spurgeon Appraisals workspace I built and run, replayed with sample orders. Pick a property type, then scroll to follow one order from intake until the client pays.
         </FadeIn>
         <FadeIn delay={0.25} className="mx-auto mt-10 flex max-w-3xl flex-wrap justify-center gap-3 sm:gap-4">
@@ -109,10 +110,10 @@ export default function OrderJourneySection() {
               onClick={() => setKind(k.key)}
               aria-pressed={kind === k.key}
               className={`group flex items-center gap-3 rounded-xl border py-1.5 pl-1.5 pr-5 text-sm transition-colors duration-200 sm:text-base ${
-                kind === k.key ? 'border-[#FFD3B0] bg-[#FFD3B0] text-[#2A1A24]' : 'border-[#D7E2EA]/40 text-[#D7E2EA] hover:border-[#D7E2EA]'
+                kind === k.key ? 'border-[#C0D849] bg-[#C0D849] text-[#01170C]' : 'border-[#C9D6CE]/40 text-[#C9D6CE] hover:border-[#C9D6CE]'
               }`}
             >
-              <img src={k.img} alt="" className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12" />
+              <img src={k.img} alt="" className="h-10 w-10 rounded-lg object-cover transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12" />
               {ORDERS[k.key].label}
             </button>
           ))}
@@ -128,13 +129,13 @@ export default function OrderJourneySection() {
                 <button
                   type="button"
                   onClick={() => goTo(i)}
-                  className={`flex w-full items-baseline gap-3 rounded-2xl px-4 py-2.5 text-left transition-colors duration-300 ${i === step ? 'bg-[#D7E2EA]/10' : 'hover:bg-[#D7E2EA]/5'}`}
+                  className={`flex w-full items-baseline gap-3 rounded-2xl px-4 py-2.5 text-left transition-colors duration-300 ${i === step ? 'bg-[#C9D6CE]/10' : 'hover:bg-[#C9D6CE]/5'}`}
                 >
-                  <span className={`font-light tabular-nums transition-colors ${i === step ? 'text-[#C0D849]' : 'text-[#646973]'}`}>{String(i + 1).padStart(2, '0')}</span>
-                  <span className={`uppercase tracking-wider transition-colors ${i === step ? 'text-[#D7E2EA]' : 'text-[#646973]'}`}>{st.title}</span>
+                  <span className={`font-light tabular-nums transition-colors ${i === step ? 'text-[#C0D849]' : 'text-[#6F8578]'}`}>{String(i + 1).padStart(2, '0')}</span>
+                  <span className={`uppercase tracking-wider transition-colors ${i === step ? 'text-[#C9D6CE]' : 'text-[#6F8578]'}`}>{st.title}</span>
                 </button>
                 {i === step && (
-                  <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="overflow-hidden px-4 pb-2 pl-[3.1rem] text-sm font-light leading-relaxed text-[#D7E2EA]/70">
+                  <motion.p initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} className="overflow-hidden px-4 pb-2 pl-[3.1rem] text-sm font-light leading-relaxed text-[#C9D6CE]/70">
                     {st.text}
                   </motion.p>
                 )}
@@ -144,12 +145,12 @@ export default function OrderJourneySection() {
 
           {/* Laptop frame */}
           <div className="order-1 mx-auto w-full max-w-[1100px] min-w-0 flex-1 lg:order-2">
-            <div className="rounded-[18px] border border-[#2a2d33] bg-[#16181c] p-2 shadow-[0_40px_120px_-30px_rgba(182,0,168,0.35)] sm:rounded-[26px] sm:p-3">
+            <div className="rounded-[18px] border border-[#1B3F29] bg-[#022C18] p-2 shadow-[0_40px_120px_-30px_rgba(192,216,73,0.18)] sm:rounded-[26px] sm:p-3">
               <div className="mb-2 flex items-center gap-1.5 px-2">
                 <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                 <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                <span className="ml-3 hidden truncate rounded-md bg-[#0A0810] px-3 py-0.5 font-jakarta text-[11px] text-[#9aa3ad] sm:block">workspace.spurgeonappraisals · Operations view · sample data</span>
+                <span className="ml-3 hidden truncate rounded-md bg-[#01170C] px-3 py-0.5 font-jakarta text-[11px] text-[#9FB6A9] sm:block">workspace.spurgeonappraisals · Operations view · sample data</span>
               </div>
               <div ref={frameRef} className="relative w-full overflow-hidden rounded-[10px] sm:rounded-[14px]" style={{ aspectRatio: `${W} / ${H}` }}>
                 <div className="absolute left-0 top-0 origin-top-left" style={{ width: W, height: H, transform: `scale(${fit})` }}>
@@ -159,19 +160,19 @@ export default function OrderJourneySection() {
                 </div>
               </div>
             </div>
-            <div className="mx-auto h-3 w-[70%] rounded-b-2xl bg-[#202328]" />
+            <div className="mx-auto h-3 w-[70%] rounded-b-2xl bg-[#0B2B19]" />
 
             {/* Caption for smaller screens */}
             <div className="mt-5 flex items-start gap-4 lg:hidden">
               <span className="font-light tabular-nums text-[#C0D849]" style={{ fontSize: 'clamp(1.6rem, 6vw, 2.4rem)', lineHeight: 1 }}>{String(step + 1).padStart(2, '0')}</span>
               <div className="min-w-0">
-                <div className="font-medium uppercase tracking-wider text-[#D7E2EA]">{s.title}</div>
-                <p className="text-sm font-light leading-relaxed text-[#D7E2EA]/70">{s.text}</p>
+                <div className="font-medium uppercase tracking-wider text-[#C9D6CE]">{s.title}</div>
+                <p className="text-sm font-light leading-relaxed text-[#C9D6CE]/70">{s.text}</p>
               </div>
             </div>
             <div className="mt-4 flex justify-center gap-1.5 lg:hidden">
               {STEPS.map((st, i) => (
-                <button key={st.key} type="button" aria-label={st.title} onClick={() => goTo(i)} className={`h-1.5 rounded-full transition-all ${i === step ? 'w-6 bg-[#C0D849]' : 'w-1.5 bg-[#646973]'}`} />
+                <button key={st.key} type="button" aria-label={st.title} onClick={() => goTo(i)} className={`h-1.5 rounded-full transition-all ${i === step ? 'w-6 bg-[#C0D849]' : 'w-1.5 bg-[#6F8578]'}`} />
               ))}
             </div>
           </div>

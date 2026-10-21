@@ -1,4 +1,3 @@
-import Scene3D from './components/Scene3D'
 import Nav from './components/Nav'
 import HeroSection from './sections/HeroSection'
 import IntroSection from './sections/IntroSection'
@@ -11,8 +10,7 @@ import CtaSection from './sections/CtaSection'
 
 export default function App() {
   return (
-    <main className="relative bg-[#0A0810]" style={{ overflowX: 'clip' }}>
-      <Scene3D />
+    <main className="relative bg-[#01170C]" style={{ overflowX: 'clip' }}>
       <Nav />
       <HeroSection />
       <IntroSection />

@@ -102,7 +102,7 @@ function Card({ f, k, travel, reduce }: { f: Frame; k: number; travel: MotionVal
   const isAerial = k === 0
   return (
     <motion.figure
-      className={`absolute left-1/2 top-1/2 overflow-hidden rounded-2xl border border-white/15 bg-[#14101c] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ${
+      className={`absolute left-1/2 top-1/2 overflow-hidden rounded-2xl border border-white/15 bg-[#022C18] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ${
         isAerial ? 'w-[min(78vw,980px)]' : 'w-[min(56vw,620px)]'
       } aspect-[4/3]`}
       style={{ transform: reduce ? flat : transform, opacity, visibility }}
@@ -127,33 +127,33 @@ function FlyThrough({ tour }: { tour: Tour }) {
   return (
     <div id={tour.id} ref={ref} style={{ height: `${n * 60 + 100}vh` }}>
       <div className="sticky top-0 h-screen overflow-hidden" style={{ perspective: '900px', perspectiveOrigin: '50% 50%' }}>
-        <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,rgba(185,163,247,0.22),transparent_60%)]" />
+        <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_55%,rgba(4,105,56,0.35),transparent_60%)]" />
         <div className="absolute inset-0" style={{ transformStyle: 'preserve-3d' }}>
           {tour.frames.map((f, k) => (
             <Card key={f.src} f={f} k={k} travel={travel} reduce={reduce} />
           ))}
         </div>
 
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-[#0A0810] via-[#0A0810]/70 to-transparent px-5 pb-16 pt-24 sm:px-10">
-          <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#FFD3B0]">{tour.type} · {tour.place}</div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-[#01170C] via-[#01170C]/70 to-transparent px-5 pb-16 pt-24 sm:px-10">
+          <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#C0D849]">{tour.type} · {tour.place}</div>
           <h3 className="mt-1 font-light leading-none tracking-tight" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.6rem)' }}>{tour.headline}</h3>
         </div>
 
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-end justify-between gap-4 bg-gradient-to-t from-[#0A0810] via-[#0A0810]/70 to-transparent px-5 pb-8 pt-16 sm:px-10">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex flex-wrap items-end justify-between gap-4 bg-gradient-to-t from-[#01170C] via-[#01170C]/70 to-transparent px-5 pb-8 pt-16 sm:px-10">
           <div className="min-w-0">
-            <div className="text-xs uppercase tracking-[0.2em] text-[#A79FB0]">{String(cur + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</div>
+            <div className="text-xs uppercase tracking-[0.2em] text-[#9FB6A9]">{String(cur + 1).padStart(2, '0')} / {String(n).padStart(2, '0')}</div>
             <motion.div key={cur} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="font-light" style={{ fontSize: 'clamp(1.1rem, 2.2vw, 1.8rem)' }}>
               {tour.frames[cur].label}
             </motion.div>
           </div>
           <ul className="flex max-w-[560px] flex-wrap gap-2 sm:justify-end">
             {tour.facts.map((f) => (
-              <li key={f} className="rounded-lg border border-[#F6A98C]/35 bg-[#2A1A24]/50 px-3 py-1.5 text-xs text-[#FFD3B0] backdrop-blur sm:text-sm">{f}</li>
+              <li key={f} className="rounded-lg border border-[#C0D849]/35 bg-[#01170C]/50 px-3 py-1.5 text-xs text-[#C0D849] backdrop-blur sm:text-sm">{f}</li>
             ))}
           </ul>
         </div>
         <div className="absolute inset-x-0 bottom-0 z-10 h-[3px] bg-white/10">
-          <motion.div className="h-full bg-gradient-to-r from-[#FFD3B0] via-[#F59AB8] to-[#B9A3F7]" style={{ width: bar }} />
+          <motion.div className="h-full bg-gradient-to-r from-[#C0D849] via-[#7FBF8E] to-[#046938]" style={{ width: bar }} />
         </div>
       </div>
     </div>
@@ -162,17 +162,17 @@ function FlyThrough({ tour }: { tour: Tour }) {
 
 export default function ToursSection() {
   return (
-    <section id="tours" className="relative bg-[#0A0810]">
+    <section id="tours" className="relative bg-[#01170C]">
       <div className="mx-auto max-w-[1400px] px-5 pt-24 sm:px-10 md:pt-32">
         <FadeIn as="h2" y={40} className="max-w-[16ch] font-light leading-[1] tracking-tight" style={{ fontSize: 'clamp(2.4rem, 6vw, 6rem)' }}>
-          Step <span className="font-serif italic text-[#FFD3B0]">inside</span> the properties.
+          Step <span className="font-serif italic text-[#C0D849]">inside</span> the properties.
         </FadeIn>
-        <FadeIn delay={0.1} as="p" className="mt-6 max-w-[48ch] text-[#A79FB0]">
+        <FadeIn delay={0.1} as="p" className="mt-6 max-w-[48ch] text-[#9FB6A9]">
           Scroll to fly in from the aerial view and move through each property, room by room and field by field.
         </FadeIn>
         <FadeIn delay={0.2} className="mt-8 flex flex-wrap gap-2">
           {TOURS.map((t) => (
-            <button key={t.id} type="button" onClick={() => scrollToId(t.id)} className="rounded-xl border border-[#F6A98C]/40 px-4 py-2 text-sm text-[#FFD3B0] transition-colors hover:bg-[#F6A98C]/10">
+            <button key={t.id} type="button" onClick={() => scrollToId(t.id)} className="rounded-xl border border-[#C0D849]/40 px-4 py-2 text-sm text-[#C0D849] transition-colors hover:bg-[#C0D849]/10">
               {t.type}
             </button>
           ))}

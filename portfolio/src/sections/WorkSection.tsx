@@ -22,13 +22,13 @@ export default function WorkSection() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
   const lift = useTransform(scrollYProgress, [0, 1], [60, -60])
   return (
-    <section id="work" ref={ref} className="relative bg-[#0A0810] px-4 py-24 sm:px-10 md:py-32">
+    <section id="work" ref={ref} className="relative bg-[#01170C] px-4 py-24 sm:px-10 md:py-32">
       <div className="mx-auto max-w-[1400px]">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <FadeIn as="h2" y={40} className="max-w-[18ch] font-light leading-[1] tracking-tight" style={{ fontSize: 'clamp(2.2rem, 5vw, 4.8rem)' }}>
-            Real properties. <span className="font-serif italic text-[#FFD3B0]">Every</span> type.
+            Real properties. <span className="font-serif italic text-[#C0D849]">Every</span> type.
           </FadeIn>
-          <FadeIn delay={0.1} as="p" className="max-w-[38ch] text-[#A79FB0]">
+          <FadeIn delay={0.1} as="p" className="max-w-[38ch] text-[#9FB6A9]">
             Photos from appraisals I coordinated, from intake to delivery. Tap any photo to tour the property.
           </FadeIn>
         </div>
@@ -37,9 +37,9 @@ export default function WorkSection() {
             <FadeIn key={c.src + i} delay={(i % 4) * 0.08} y={60} className={`${c.span} min-w-0`}>
               <button type="button" onClick={() => scrollToId(c.tour)} className="group relative block h-full w-full overflow-hidden rounded-2xl border border-white/10 text-left">
                 <img src={c.src} alt={c.label} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
-                <span className="absolute inset-0 bg-gradient-to-t from-[#0A0810]/85 via-transparent to-transparent" />
+                <span className="absolute inset-0 bg-gradient-to-t from-[#01170C]/85 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-3 right-3">
-                  <span className="block text-[11px] font-medium uppercase tracking-[0.18em] text-[#FFD3B0]">{c.type}</span>
+                  <span className="block text-[11px] font-medium uppercase tracking-[0.18em] text-[#C0D849]">{c.type}</span>
                   <span className="block text-sm font-light text-white sm:text-base">{c.label}</span>
                 </span>
               </button>
