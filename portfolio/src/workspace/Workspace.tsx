@@ -307,7 +307,7 @@ export default function Workspace({ kind, step, pay, onPay, paid, onPaid }: Prop
                   <Bubble who="Larry Mae" mine time="1:07 PM" text={<span className="flex items-center gap-2"><CheckCircle2 size={16} style={{ color: C.lime }} /> Order Confirmed</span>} />
                 </div>
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9 }} className="mt-8 rounded-2xl border-2 p-5" style={{ borderColor: C.lime, background: '#FBFDF1' }}>
-                  <div className="text-[12px] font-bold uppercase tracking-[0.14em]" style={{ color: C.green2 }}>GHL automation</div>
+                  <div className="text-[12px] font-bold uppercase tracking-[0.14em]" style={{ color: C.green2 }}>Order pipeline</div>
                   <div className="mt-2 flex items-center gap-3 text-[15px] font-semibold">
                     <span className="rounded-lg px-3 py-1.5" style={{ background: '#E3E8E4' }}>Bid sent</span>
                     <span>→</span>
@@ -447,7 +447,7 @@ export default function Workspace({ kind, step, pay, onPay, paid, onPaid }: Prop
                     </button>
                   </div>
                 )}
-                <div className="mt-auto pt-4 text-[12px]" style={{ color: C.muted }}>Deposit logged and the order closes in GHL.</div>
+                <div className="mt-auto pt-4 text-[12px]" style={{ color: C.muted }}>Deposit logged and the order is closed.</div>
               </Card>
             )}
           </div>

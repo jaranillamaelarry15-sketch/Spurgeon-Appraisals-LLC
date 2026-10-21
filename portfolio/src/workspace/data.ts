@@ -181,7 +181,7 @@ export const STEPS: { key: string; stage: string; title: string; text: string; f
   { key: 'fee', stage: 'Fee quote', title: 'Fee quote', text: 'The fee sheet for that property type sets the price: base fee, complexity, buildings, surcharges and portal fees.', focus: 'mainTop' },
   { key: 'assign', stage: 'Appraiser', title: 'Appraiser review', text: 'The order goes to the right appraiser’s queue. They confirm the fee and completion date, adjust it, or reroute it.', focus: 'sideTop' },
   { key: 'bid', stage: 'Bid sent', title: 'Bid sent to client', text: 'The fee and completion date go to the client with Front Desk copied, and every change is saved in the order history.', focus: 'mainTop' },
-  { key: 'confirm', stage: 'Confirmed', title: 'Client confirms the order', text: 'The client says go ahead. Typing “Order Confirmed” moves the opportunity in GHL to In Progress automatically.', focus: 'mainTop' },
+  { key: 'confirm', stage: 'Confirmed', title: 'Client confirms the order', text: 'The client says go ahead. Typing “Order Confirmed” moves the order to In Progress automatically.', focus: 'mainTop' },
   { key: 'report', stage: 'Report', title: 'Inspection & report delivery', text: 'I schedule the inspection, track the due date and deliver the report in the format the client requires.', focus: 'mainTop' },
   { key: 'pay', stage: 'Paid', title: 'Invoice & payment', text: 'The invoice goes out with two ways to pay: a mailed check or a secure payment link. I watch the deposit and close the order.', focus: 'pay' },
 ]

@@ -26,7 +26,7 @@ export default function Nav() {
       <div className={`mx-auto flex max-w-[1400px] items-center justify-between gap-3 rounded-2xl px-3 py-2 transition-colors duration-500 sm:px-4 ${light ? '' : 'bg-[#01170C]/60 backdrop-blur-md'}`}>
         <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className={`flex items-center gap-2 text-xl font-medium tracking-tight sm:text-2xl ${ink}`}>
           <span className="h-5 w-5 rounded-full bg-gradient-to-br from-[#C0D849] via-[#7FBF8E] to-[#046938]" />
-          larry mae
+          Larry Mae
         </button>
         <nav className={`hidden items-center gap-1 rounded-xl border px-1.5 py-1 md:flex ${light ? 'border-[#F4F1EC]/20 bg-[#01170C]/30 backdrop-blur' : 'border-[#C0D849]/30 bg-[#01170C]/50'}`}>
           {LINKS.map((l) => (

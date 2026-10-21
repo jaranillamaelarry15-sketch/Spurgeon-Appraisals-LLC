@@ -8,7 +8,7 @@ const ROW1 = [
   { icon: CalendarCheck, label: 'Inspection scheduling' },
 ]
 const ROW2 = [
-  { icon: Workflow, label: 'GHL, Zapier & Make automation' },
+  { icon: Workflow, label: 'Workflow automation & SOPs' },
   { icon: Users, label: 'Client & AMC communication' },
   { icon: Receipt, label: 'Invoicing & payment follow-up' },
   { icon: Megaphone, label: 'Social media marketing' },

@@ -1,20 +1,19 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import FadeIn from '../components/FadeIn'
-import { scrollToId } from '../components/Buttons'
 
 const files = import.meta.glob('../assets/tours/*.webp', { eager: true, import: 'default' }) as Record<string, string>
 const img = (n: string) => files[`../assets/tours/${n}.webp`]
 
 const CARDS = [
-  { src: img('res-001-000'), type: 'Residential', label: 'Ranch home · Canton, MO', span: 'md:col-span-2 md:row-span-2', tour: 'tour-residential' },
-  { src: img('farm-aerial'), type: 'Farm', label: '138.76 acres · Howard Co., MO', span: '', tour: 'tour-farm' },
-  { src: img('res-019-018'), type: 'Residential', label: 'Kitchen', span: '', tour: 'tour-residential' },
-  { src: img('farm-13-1'), type: 'Farm', label: 'Row-crop cropland', span: '', tour: 'tour-farm' },
-  { src: img('land-aerial'), type: 'Commercial land', label: '1.056 ac R-3 site · Kirksville', span: '', tour: 'tour-commercial' },
-  { src: img('farm-15-1'), type: 'Farm', label: 'Older outbuildings', span: '', tour: 'tour-farm' },
-  { src: img('land-026-030'), type: 'Commercial land', label: 'Street frontage', span: 'md:col-span-2', tour: 'tour-commercial' },
-  { src: img('res-026-039'), type: 'Residential', label: 'Finished basement', span: '', tour: 'tour-residential' },
+  { src: img('res-001-000'), type: 'Residential', label: 'Ranch home · Canton, MO', span: 'md:col-span-2 md:row-span-2', tour: 'residential' },
+  { src: img('farm-aerial'), type: 'Farm', label: '138.76 acres · Howard Co., MO', span: '', tour: 'farm' },
+  { src: img('res-019-018'), type: 'Residential', label: 'Kitchen', span: '', tour: 'residential' },
+  { src: img('farm-13-1'), type: 'Farm', label: 'Row-crop cropland', span: '', tour: 'farm' },
+  { src: img('land-aerial'), type: 'Commercial land', label: '1.056 ac R-3 site · Kirksville', span: '', tour: 'commercial' },
+  { src: img('farm-15-1'), type: 'Farm', label: 'Older outbuildings', span: '', tour: 'farm' },
+  { src: img('land-026-030'), type: 'Commercial land', label: 'Street frontage', span: 'md:col-span-2', tour: 'commercial' },
+  { src: img('res-026-039'), type: 'Residential', label: 'Finished basement', span: '', tour: 'residential' },
 ]
 
 export default function WorkSection() {
@@ -35,7 +34,7 @@ export default function WorkSection() {
         <motion.div style={{ y: lift }} className="mt-14 grid auto-rows-[200px] grid-cols-2 gap-3 sm:auto-rows-[240px] sm:gap-4 md:grid-cols-4">
           {CARDS.map((c, i) => (
             <FadeIn key={c.src + i} delay={(i % 4) * 0.08} y={60} className={`${c.span} min-w-0`}>
-              <button type="button" onClick={() => scrollToId(c.tour)} className="group relative block h-full w-full overflow-hidden rounded-2xl border border-white/10 text-left">
+              <button type="button" onClick={() => window.dispatchEvent(new CustomEvent('open-tour', { detail: c.tour }))} className="group relative block h-full w-full overflow-hidden rounded-2xl border border-white/10 text-left">
                 <img src={c.src} alt={c.label} loading="lazy" className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" />
                 <span className="absolute inset-0 bg-gradient-to-t from-[#01170C]/85 via-transparent to-transparent" />
                 <span className="absolute bottom-3 left-3 right-3">

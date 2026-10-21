@@ -44,7 +44,7 @@ export default function CtaSection() {
         </motion.div>
         <motion.div style={{ opacity: textO, y: textY }} className="absolute inset-x-0 bottom-0 z-30 flex flex-col items-center px-5 pb-12 text-center sm:pb-16">
           <div className="flex items-center gap-2 text-2xl font-medium tracking-tight text-white">
-            <span className="h-5 w-5 rounded-full bg-gradient-to-br from-[#C0D849] via-[#7FBF8E] to-[#046938]" /> larry mae
+            <span className="h-5 w-5 rounded-full bg-gradient-to-br from-[#C0D849] via-[#7FBF8E] to-[#046938]" /> Larry Mae
           </div>
           <h2 className="mt-3 max-w-[16ch] font-light leading-[1] tracking-tight text-white" style={{ fontSize: 'clamp(2.2rem, 5.4vw, 5rem)' }}>
             Let&apos;s make your next order <span className="font-serif italic">effortless</span>.
